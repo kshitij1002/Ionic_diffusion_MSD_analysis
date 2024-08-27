@@ -1,4 +1,4 @@
-msd = zeros(3400,1);
+
 for i=0:3399
     filename = sprintf(‘Displacement.%g',i);
     data = dlmread(filename,' ',9,0);%Skipping the inital 9 lines
@@ -16,10 +16,5 @@ x = (0:1.5e-3*10:3399*10*1.5e-3); %starting at time t=0, with a time step of 1.5
 plot(x,msd1,'b-','linewidth',3); hold on;
 plot(x,msd3,'g-','linewidth',3); hold on;
 plot(x,msd2,'r-','linewidth',3);
+
  
-p = polyfit(x, msd1,1); %Linear fit for the MSD curve of Na-atom
- 
-D = p(1)/6; %Overall diffusion coefficient in 3-D space
-xlabel('Time(ps)');
-ylabel('MSD (^2)');
-![image](https://github.com/kshitij1002/kshitij1011/assets/74930554/c9172868-577b-4cc6-b17f-128a231e1d27)
