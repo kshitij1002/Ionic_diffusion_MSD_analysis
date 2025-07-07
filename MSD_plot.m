@@ -1,10 +1,10 @@
-
+clear all;
 for i=0:3399
     filename = sprintf(‘Displacement.%g',i);
     data = dlmread(filename,' ',9,0);%Skipping the inital 9 lines
-    disp1 = data((data(:,1)==1),2);%Displacement of Na-atom ('1' representing atom type)
-    disp2 = data((data(:,1)==2),2);%Displacement of N-atom ('2' representing atom type)
-    disp3 = data((data(:,1)==3),2);%Displacement of B-atom ('3' representing atom type)
+    dis1 = data((data(:,1)==1),2);%Displacement of First atom ('1' representing atom type)
+    dis2 = data((data(:,1)==2),2);%Displacement of Second atom ('2' representing atom type)
+    dis3 = data((data(:,1)==3),2);%Displacement of Third atom ('3' representing atom type)
     msd1(i+1) = sum(disp1.^2)/length(disp1);
     msd2(i+1) = sum(disp2.^2)/length(disp2);
     msd3(i+1) = sum(disp3.^2)/length(disp2);
